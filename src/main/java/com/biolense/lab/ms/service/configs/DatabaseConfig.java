@@ -1,3 +1,4 @@
+/*
 package com.biolense.lab.ms.service.configs;
 
 import lombok.Data;
@@ -48,3 +49,4 @@ public class DatabaseConfig {
         return dataSource;
     }
 }
+*/

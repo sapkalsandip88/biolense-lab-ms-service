@@ -2,19 +2,21 @@ package com.biolense.lab.ms.service.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "test_master")
-public class Tests {
+public class TestMaster {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+    @Column(name = "LAB_ID")
+    private Long labId;
     @Column(name = "test_name")
     private String testName;
     @Column(name = "test_code")
@@ -51,7 +53,10 @@ public class Tests {
     private Date createAt;
     @Column(name = "last_updated_at")
     private Date lastUpdatedAt;
+    @Column(name = "outsourcing_center")
+    private String outsourcingCenter;
 
-
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="TEST_ID")
+    private Set<ParameterMaster> parameterMasterList;
 }
