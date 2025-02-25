@@ -20,4 +20,6 @@ public interface TestManagementService {
     Set<ParameterMaster> getParameterDetailsById(Long testId);
 
     boolean deleteParameterDetailsById( Long paramId);
+
+    boolean deleteTestDetailsById(Long testId);
 }

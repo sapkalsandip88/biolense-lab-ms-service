@@ -150,6 +150,17 @@ public class TestManagementServiceImpl implements TestManagementService {
         return false;
     }
 
+    @Override
+    public boolean deleteTestDetailsById(Long testId) {
+        try {
+            testManagementRepo.deleteById(testId);
+            return true;
+        }catch (Exception e) {
+            log.error("Error while deleting parameter : {}", e.getMessage());
+        }
+        return false;
+    }
+
     private void setUpdatedParameters(ParameterMaster updatedParameter, ParameterMaster parameterMaster) {
         updatedParameter.setParameterName(parameterMaster.getParameterName());
         updatedParameter.setUnit(parameterMaster.getUnit());

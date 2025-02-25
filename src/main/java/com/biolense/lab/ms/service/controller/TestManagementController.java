@@ -56,4 +56,9 @@ public class TestManagementController {
         boolean deleted = testManagementService.deleteParameterDetailsById( paramId);
         return new ResponseEntity<>(deleted, HttpStatus.OK);
     }
+    @GetMapping("/delete-test-details/")
+    public ResponseEntity<Boolean> deleteTestDetailsById(@RequestParam("testdId") Long testId){
+        boolean deleted = testManagementService.deleteTestDetailsById(testId);
+        return new ResponseEntity<>(deleted, HttpStatus.OK);
+    }
 }
